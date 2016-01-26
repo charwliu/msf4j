@@ -66,12 +66,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyleplugin.version}</version>
+                <version>${maven.checkstyle.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${maven.findbugsplugin.version}</version>
+                <version>${maven.findbugs.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -126,7 +126,5 @@
     </modules>
 
     <properties>
-        <maven.checkstyleplugin.version>2.16</maven.checkstyleplugin.version>
-        <maven.findbugsplugin.version>3.0.2</maven.findbugsplugin.version>
     </properties>
 </project>
