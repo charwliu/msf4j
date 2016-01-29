@@ -44,6 +44,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
+
 /**
  * HttpResourceModel contains information needed to handle Http call for a given path. Used as a destination in
  * {@code PatternPathRouterWithGroups} to route URI paths to right Http end points.
@@ -260,6 +261,8 @@ public final class HttpResourceModel {
 
     /**
      * A container class to hold information about a handler method parameters.
+     *
+     * @param <T>  func
      */
     public static final class ParameterInfo<T> {
         private final Annotation annotation;

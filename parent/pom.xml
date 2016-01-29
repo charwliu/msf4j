@@ -23,6 +23,7 @@
         <groupId>org.wso2</groupId>
         <artifactId>wso2</artifactId>
         <version>2</version>
+        <relativePath />
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -64,17 +65,17 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven.checkstyleplugin.version}</version>
+                    <version>${maven.checkstyle.plugin.version}</version>
                     <executions>
                         <execution>
                             <id>validate</id>
                             <phase>validate</phase>
                             <configuration>
                                 <configLocation>
-                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/checkstyle.xml
+                                    https://raw.githubusercontent.com/charwliu/code-quality-tools/master/checkstyle/checkstyle.xml
                                 </configLocation>
                                 <suppressionsLocation>
-                                    https://raw.githubusercontent.com/wso2/code-quality-tools/master/checkstyle/suppressions.xml
+                                    https://raw.githubusercontent.com/charwliu/code-quality-tools/master/checkstyle/suppressions.xml
                                 </suppressionsLocation>
                                 <encoding>UTF-8</encoding>
                                 <consoleOutput>true</consoleOutput>
@@ -90,7 +91,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>${maven.findbugsplugin.version}</version>
+                    <version>${maven.findbugs.plugin.version}</version>
                     <configuration>
                         <effort>Max</effort>
                         <threshold>Low</threshold>
@@ -110,7 +111,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven.compilerplugin.version}</version>
+                    <version>${maven.compiler.plugin.version}</version>
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
@@ -131,7 +132,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven.javadocplugin.version}</version>
+                    <version>${maven.javadoc.plugin.version}</version>
                     <executions>
                         <execution>
                             <id>docs</id>
@@ -145,27 +146,27 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>${maven.shadeplugin.version}</version>
+                    <version>${maven.shade.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefireplugin.version}</version>
+                    <version>${maven.surefire.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${maven.jacocoplugin.version}</version>
+                    <version>${maven.jacoco.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.sourceplugin.version}</version>
+                    <version>${maven.source.plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>${maven.gpgplugin.version}</version>
+                    <version>${maven.gpg.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -476,16 +477,13 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Maven plugins -->
-        <maven.checkstyleplugin.version>2.16</maven.checkstyleplugin.version>
-        <maven.findbugsplugin.version>3.0.2</maven.findbugsplugin.version>
-        <maven.compilerplugin.version>3.3</maven.compilerplugin.version>
         <maven.wagon.ssh.version>2.1</maven.wagon.ssh.version>
-        <maven.javadocplugin.version>2.10.3</maven.javadocplugin.version>
-        <maven.shadeplugin.version>2.4.1</maven.shadeplugin.version>
-        <maven.surefireplugin.version>2.14.1</maven.surefireplugin.version>
-        <maven.jacocoplugin.version>0.7.1.201405082137</maven.jacocoplugin.version>
-        <maven.sourceplugin.version>2.2.1</maven.sourceplugin.version>
-        <maven.gpgplugin.version>1.5</maven.gpgplugin.version>
+        <maven.javadoc.plugin.version>2.10.3</maven.javadoc.plugin.version>
+        <maven.shade.plugin.version>2.4.1</maven.shade.plugin.version>
+        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+        <maven.jacoco.plugin.version>0.7.1.201405082137</maven.jacoco.plugin.version>
+        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.gpg.plugin.version>1.5</maven.gpg.plugin.version>
 
         <!-- Dependencies -->
         <carbon.kernel.version>5.0.0</carbon.kernel.version>
