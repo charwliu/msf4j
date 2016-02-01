@@ -268,11 +268,13 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <!--
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j.log4j.version}</version>
             </dependency>
+            -->
             <dependency>
                 <groupId>com.google.code.gson</groupId>
                 <artifactId>gson</artifactId>
@@ -509,7 +511,7 @@
         <rs-api.version>2.0</rs-api.version>
         <netty.version>4.0.30.Final</netty.version>
         <netty.version.range>[4.0,5)</netty.version.range>
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>1.7.13</slf4j.version>
         <slf4j.version.range>[1.7,2)</slf4j.version.range>
         <slf4j.log4j.version>1.6.0</slf4j.log4j.version>
         <gson.version>2.2.4</gson.version>
@@ -543,7 +545,7 @@
         <pax.exam.version>4.6.0</pax.exam.version>
         <pax.url.aether.version>1.6.0</pax.url.aether.version>
         <ow2.jta.spec.version>1.0.12</ow2.jta.spec.version>
-        <slf4j.api.version>1.7.12</slf4j.api.version>
+        <slf4j.api.version>1.7.13</slf4j.api.version>
         <javax.inject.version>1</javax.inject.version>
 
         <!--Other dependency versions -->
