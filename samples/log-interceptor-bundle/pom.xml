@@ -14,21 +14,20 @@
   ~ limitations under the License.
   -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wso2.carbon.mss</groupId>
-        <artifactId>mss-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../../parent/pom.xml</relativePath>
+        <groupId>org.wso2.msf4j</groupId>
+        <artifactId>msf4j-parent</artifactId>
+        <version>2.1.2-SNAPSHOT</version>
+        <relativePath>../../poms/parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>log-interceptor-bundle</artifactId>
     <packaging>bundle</packaging>
 
-    <name>Log Interceptor OSGi Bundle</name>
+    <name>Sample: Log Interceptor</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -36,28 +35,8 @@
             <artifactId>org.eclipse.osgi</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.mss</groupId>
-            <artifactId>org.wso2.carbon.mss</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-buffer</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-transport</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-handler</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec-http</artifactId>
+            <groupId>org.wso2.msf4j</groupId>
+            <artifactId>msf4j-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -66,12 +45,15 @@
     </dependencies>
 
     <properties>
-        <private.package>org.wso2.carbon.mss.loginterceptor.*</private.package>
+        <private.package>org.wso2.msf4j.loginterceptor.*</private.package>
         <import.package>
             org.osgi.framework.*;version="${osgi.framework.import.version.range}",
-            org.wso2.carbon.mss.*,
-            io.netty.handler.codec.http.*,
+            org.wso2.msf4j.*,
             org.slf4j.*,
+            org.wso2.carbon.messaging,
         </import.package>
+        <carbon.component>
+            osgi.service;objectClass="org.wso2.msf4j.Interceptor"
+        </carbon.component>
     </properties>
 </project>

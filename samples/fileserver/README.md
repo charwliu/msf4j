@@ -1,10 +1,16 @@
 # File handling
 
 
-## Serve Files with WSO2 MSS
+## Serve Files with WSO2 MSF4J
 
-You can serve files from the resource methods by returning a java.io.File or 
-by returning a javax.ws.rs.core.Response object with a java.io.File entity.
+You can serve files from the resource methods by returning a java.io.File, 
+ java.io.InputStream or by returning a javax.ws.rs.core.Response object with a java.io.File or 
+java.io.InputStream entity. Streaming is supported by default for java.io.File and java.io.InputStream
+entities. 
+
+javax.ws.rs.core.StreamingOutput is also supported by MSF4J. This provides the service author more control
+over the chunk size.
+
 See the following sample.
 
 ```java
@@ -19,14 +25,14 @@ See the following sample.
     }
 ```
 
-## Chunked HTTP Request Handling
+## Streaming (Chunked) HTTP Request Handling
 
 
-With WSO2 Microservices server, you can handle chunked requests in two ways.
+With WSO2 MSF4J, you can handle chunked requests in two ways.
 
 ### 1. Handle requests using HttpStreamHandler
 
-First way is to implement org.wso2.carbon.mss.HttpStreamHandler as shown in the below example to handle chunked http 
+First way is to implement org.wso2.msf4j.HttpStreamHandler as shown in the below example to handle chunked http 
 requests in a zero copy manner.
 
 ```java
@@ -55,13 +61,13 @@ requests in a zero copy manner.
     }
 ```
 
-In the above example the when request chunks arrive, chunk() method is called. When the last chunk is arrived the 
+In the above example when the request chunks arrive, chunk() method is called. When the last chunk is arrived the 
 finished() method is called. error() method will be called if an error occurs while processing the request.
 
 
 ### 2. Handle requests by aggregating chunks 
-Second way of handling chunked requests is to implement a normal resource method to handle the request ignoring the 
-whether the requests is chunked as shown in the below example. In this case WSO2 Microservices Server internally 
+Second way of handling chunked requests is to implement a normal resource method to handle the request ignoring 
+whether the requests is chunked as shown in the below example. In this case MSF4J internally 
 aggregates all the chunks of the request and presents it as a full http request to the resource method.
 
 ```java
@@ -88,8 +94,6 @@ Use following command to run the application
 ```
 java -jar target/fileserver-*.jar
 ```
-Note: /var/www/html/upload directory should be available with write permissions
-
 
 ## How to test the sample
 
@@ -101,8 +105,22 @@ Here /testPng.png will be uploaded with the name filename.png
 
 ---
 
-Run the following curl command to receive file
+Run the following curl command to download the file:
+
 ```
-curl -v -X GET http://localhost:8080/filename.png
+curl -v -X GET http://localhost:8080/filename.png > result.png
 ```
 
+Now the file will be downloaded as result.png to the current directory.
+
+Alternatively, to see how streaming works with java.io.InputStream, run the following command:
+
+```
+curl -v -X GET http://localhost:8080/ip/filename.png > result-ipstream.png
+```
+
+To see how streaming works with javax.ws.rs.core.StreamingOutput , run the following command:
+
+```
+curl -v -X GET http://localhost:8080/op/filename.png > result-opstream.png
+```
