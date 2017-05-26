@@ -30,9 +30,9 @@
     <version>2.3.0-m2</version>
 
     <scm>
-        <url>https://github.com/wso2/msf4j.git</url>
-        <developerConnection>scm:git:https://github.com/wso2/msf4j.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2/msf4j.git</connection>
+        <url>https://github.com/charwliu/msf4j.git</url>
+        <developerConnection>scm:git:https://github.com/charwliu/msf4j.git</developerConnection>
+        <connection>scm:git:https://github.com/charwliu/msf4j.git</connection>
         <tag>v2.3.0-m2</tag>
     </scm>
 
